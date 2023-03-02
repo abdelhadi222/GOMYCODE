@@ -4,13 +4,13 @@ import mongoose from "mongoose"
 import todoRouter from "./routes/todo.js"
 import userRouter from "./routes/user.js"
 dotenv.config()
+const app = express()
+
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGO_URI, (err) => {
   if (err) return console.log(err)
   console.log("connected to the database")
 })
-
-const app = express()
 //body parser
 app.use(express.json())
 
