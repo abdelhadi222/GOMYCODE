@@ -25,19 +25,19 @@ export const apiSlice = createApi({
         headers: { "token": `${data}` },
       }),
     }),
-    getTodos: builder.query({
-      query: () => "todos",
+    getTodo: builder.query({
+      query: () => "todo",
     }),
     postTodo: builder.mutation({
       query: (data) => ({
-        url: "todos/add",
+        url: "todo/add",
         method: "POST",
         body: data
       }),
     }),
     deleteTodo: builder.mutation({
       query: (data) => ({
-        url: `todos/delete/${data}`,
+        url: `todo/delete/${data}`,
         method: "DELETE",
       }),
     })
@@ -45,4 +45,4 @@ export const apiSlice = createApi({
   })
 })
 
-export const { useGetTodosQuery, usePostTodoMutation, useDeleteTodoMutation, useLoginMutation, useSignupMutation, useChecktokenMutation } = apiSlice
+export const { useGetTodoQuery, usePostTodoMutation, useDeleteTodoMutation, useLoginMutation, useSignupMutation, useChecktokenMutation } = apiSlice
