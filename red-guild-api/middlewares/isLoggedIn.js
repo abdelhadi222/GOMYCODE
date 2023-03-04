@@ -2,7 +2,6 @@ import jwt from "jsonwebtoken"
 
 export const isLoggedIn = (req, res, next) => {
   const { token } = req.headers
-  console.log(token)
   if (!token) {
     res.status(401).json({
       message: "unauthorized"

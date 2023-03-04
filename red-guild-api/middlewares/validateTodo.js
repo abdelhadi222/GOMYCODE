@@ -1,9 +1,9 @@
 import { z } from "zod"
 
 const todoschema = z.object({
-  id: z.string().min(1),
   title: z.string().min(1),
-  desc: z.string().min(1)
+  desc: z.string().min(1),
+  isDone: z.boolean(),
 })
 
 export const validateTodo = (req, res, next) => {

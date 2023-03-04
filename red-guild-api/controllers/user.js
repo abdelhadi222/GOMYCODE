@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-import { User } from "../schemas/user"
+import { User } from "../schemas/user.js"
 
 
 

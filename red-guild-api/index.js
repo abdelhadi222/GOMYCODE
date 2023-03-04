@@ -8,10 +8,12 @@ dotenv.config()
 const app = express()
 
 mongoose.set('strictQuery', true);
-mongoose.connect(process.env.MONGO_URI, (err) => {
-  if (err) return console.log(err)
-  console.log("connected to the database")
+mongoose.connect(process.env.MONGO_URI).then(() => {
+  console.log("Connected to MongoDB")
+}).catch((err) => {
+  console.log(err)
 })
+
 //body parser
 app.use(express.json())
 
