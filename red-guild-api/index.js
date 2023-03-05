@@ -1,3 +1,4 @@
+import cors from "cors"
 import dotenv from "dotenv"
 import express from "express"
 import mongoose from "mongoose"
@@ -6,6 +7,7 @@ import userRouter from "./routes/user.js"
 
 dotenv.config()
 const app = express()
+app.use(cors())
 
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGO_URI).then(() => {
