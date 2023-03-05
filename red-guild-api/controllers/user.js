@@ -64,10 +64,9 @@ export const login = async (req, res) => {
 export const deleteUser = async (req, res) => {
   const { id } = req.params
   try {
-    const index = users.findIndex(user => user.id === id)
-    if (index === -1) return res.status(400).json({ message: "id not found" })
-    users.splice(index, 1)
-    res.status(200).json(users)
+    const deletedUser = await User.findByIdAndDelete(id)
+    if (!deletedUser) return res.status(400).json({ message: "user not found" })
+    res.status(200).json(deletedUser)
   } catch (error) {
     res.status(500).json({
       location: "error in the controller deleteUser",
