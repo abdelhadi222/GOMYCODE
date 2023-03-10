@@ -2,6 +2,8 @@ import cors from "cors"
 import dotenv from "dotenv"
 import express from "express"
 import mongoose from "mongoose"
+import orderRouter from "./routes/order.js"
+import productRouter from "./routes/product.js"
 import todoRouter from "./routes/todo.js"
 import userRouter from "./routes/user.js"
 
@@ -22,9 +24,12 @@ app.use(express.json())
 // define routers
 app.use("/todo", todoRouter)
 app.use("/auth", userRouter)
+app.use("/order", orderRouter)
+app.use("/product", productRouter)
 
 
 app.get("/ping", (req, res) => {
+  console.log(req.body)
   res.send("pong")
 })
 
