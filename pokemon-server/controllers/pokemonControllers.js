@@ -60,7 +60,7 @@ const addPokemon = async (req, res) => {
     };
     const newPokemon = await Pokemon.create(pokemon);
     return res.status(201).json({ message: "Pokemon added successfully", newPokemon });
-  } catch {
+  } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 };
