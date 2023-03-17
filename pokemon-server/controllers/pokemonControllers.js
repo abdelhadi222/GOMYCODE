@@ -21,11 +21,11 @@ const getAllPokemons = async (req, res) => {
 // get one pokemon
 
 const getOnePokemon = async (req, res) => {
+  const { id } = req.params;
   try {
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(404).json({ message: "No such a pokemon" });
     }
-    const { id } = req.params;
     const pokemon = await Pokemon.findById(id);
     return res.status(200).json(pokemon);
   } catch (error) {
