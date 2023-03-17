@@ -47,9 +47,7 @@ const addPokemon = async (req, res) => {
   if (!defence) emptyFields.push("defence");
   if (!categories && categories.length == 0) emptyFields.push("categories");
   if (emptyFields.length > 0) {
-    return res
-      .status(400)
-      .json({ message: "Please fill in all the fields", emptyFields });
+    return res.status(400).json({ message: "Please fill in all the fields", emptyFields });
   }
   try {
     const pokemon = {
@@ -61,9 +59,7 @@ const addPokemon = async (req, res) => {
       categories,
     };
     const newPokemon = await Pokemon.create(pokemon);
-    return res
-      .status(201)
-      .json({ message: "Pokemon added successfully", newPokemon });
+    return res.status(201).json({ message: "Pokemon added successfully", newPokemon });
   } catch {
     return res.status(500).json({ message: error.message });
   }
