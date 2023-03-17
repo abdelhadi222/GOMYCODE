@@ -13,9 +13,9 @@ app.use(cors())
 
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGO_URI).then(() => {
-  console.log("Connected to MongoDB")
+    console.log("Connected to MongoDB")
 }).catch((err) => {
-  console.log(err)
+    console.log(err)
 })
 
 //body parser
@@ -29,10 +29,10 @@ app.use("/product", productRouter)
 
 
 app.get("/ping", (req, res) => {
-  console.log(req.body)
-  res.send("pong")
+    console.log(req.body)
+    res.send("pong")
 })
 
 app.listen(process.env.PORT, () => {
-  console.log("Server is running on port " + process.env.PORT)
+    console.log("Server is running on port " + process.env.PORT)
 })
